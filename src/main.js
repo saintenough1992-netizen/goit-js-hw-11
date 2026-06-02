@@ -25,7 +25,7 @@ function onSubmit(event) {
 
   const input = event.currentTarget.elements[`search-text`].value.trim();
 
-  if (input == '') {
+  if (input === '') {
     iziToast.error({
       message: 'Search cannot be empty!',
       position: 'topLeft',
