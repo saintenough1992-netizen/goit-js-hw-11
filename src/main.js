@@ -22,7 +22,6 @@ searchForm.addEventListener('submit', onSubmit);
 function onSubmit(event) {
   event.preventDefault();
   clearGallery();
-
   const input = event.currentTarget.elements[`search-text`].value.trim();
 
   if (input === '') {

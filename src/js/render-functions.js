@@ -2,7 +2,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let gallery = document.querySelector('.gallery');
-let loader = document.querySelector('.js-loader');
+let loader = document.querySelector('.loader');
 
 export function clearGallery() {
   gallery.innerHTML = '';
@@ -36,7 +36,7 @@ export function createGallery(images) {
     )
     .join('');
 
-  gallery.insertAdjacentHTML('beforeend', markup);
+  gallery.innerHTML = markup;
 
   newGallery.refresh();
 }
