@@ -7,6 +7,7 @@ import {
 } from './js/render-functions';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+
 iziToast.settings({
   timeout: 10000,
   resetOnHover: true,
@@ -21,7 +22,9 @@ searchForm.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
+
   clearGallery();
+
   const input = event.currentTarget.elements[`search-text`].value.trim();
 
   if (input === '') {

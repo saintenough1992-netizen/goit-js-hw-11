@@ -46,15 +46,15 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  max-width: 1600px;
+  gap: 20px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
 }
 
 .gallery-item {
-  width: calc((100% - 96px) / 5);
+  width: calc((100% - 80px) / 5);
   border: 1px solid #808080;
   background-color: #ffffff;
 }
