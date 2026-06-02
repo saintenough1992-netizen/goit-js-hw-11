@@ -8,10 +8,10 @@ export function clearGallery() {
   gallery.innerHTML = '';
 }
 export function showLoader() {
-  loader.classList.add('loader');
+  loader.classList.remove('is-hidden');
 }
 export function hideLoader() {
-  loader.classList.remove('loader');
+  loader.classList.add('is-hidden');
 }
 let newGallery = new SimpleLightbox('.gallery a', {
   captionsDelay: 250,
@@ -24,7 +24,7 @@ export function createGallery(images) {
       img =>
         `<li class="gallery-item">
         <a class="gallery-link" href="${img.largeImageURL}">
-         <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" title="${img.name}" />
+         <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" title="${img.tags}" />
         </a>
         <div class="info">
          <p class="info-item"> <b>Likes</b> ${img.likes} </p>
