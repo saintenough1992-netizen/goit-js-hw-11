@@ -22,28 +22,38 @@ searchForm.addEventListener('submit', onSubmit);
 function onSubmit(event) {
   event.preventDefault();
   clearGallery();
-  showLoader();
+
   const input = event.currentTarget.elements[`search-text`].value.trim();
 
-  Promise.all([
-    getImagesByQuery(input),
-    new Promise(resolve => setTimeout(resolve, 1000)),
-  ])
-    .then(([images]) => {
-      if (images.length == 0) {
+  if (input == '') {
+    iziToast.error({
+      message: 'Search cannot be empty!',
+      position: 'topLeft',
+    });
+    return;
+  }
+  showLoader();
+  getImagesByQuery(input)
+    .then(images => {
+      if (images.length === 0) {
         iziToast.error({
           message:
             'Sorry, there are no images matching your search query. Please try again!',
           position: 'topLeft',
         });
-        hideLoader();
         return;
       }
       createGallery(images);
-      hideLoader();
     })
-    .catch(err => {
+    .catch(error => {
+      iziToast.error({
+        message: 'Something went wrong. Please try again later,',
+        position: 'topLeft',
+      });
+      console.log(error);
+    })
+    .finally(() => {
       hideLoader();
-      console.log(err);
+      searchForm.reset();
     });
 }

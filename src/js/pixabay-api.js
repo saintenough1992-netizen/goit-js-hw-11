@@ -19,5 +19,6 @@ export default function getImagesByQuery(query) {
     })
     .catch(err => {
       console.log(err);
+      return Promise.reject(err);
     });
 }
