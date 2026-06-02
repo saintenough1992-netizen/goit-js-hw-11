@@ -1,5 +1,3 @@
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -15,23 +13,8 @@ export function showLoader() {
 export function hideLoader() {
   loader.classList.remove('loader');
 }
-iziToast.settings({
-  timeout: 10000,
-  resetOnHover: true,
-  icon: 'material-icons',
-  transitionIn: 'flipInX',
-  transitionOut: 'flipOutX',
-});
 
 export function createGallery(images) {
-  if (images.length == 0) {
-    iziToast.error({
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
-      position: 'topLeft',
-    });
-    return;
-  }
   const markup = images
     .map(
       img =>
